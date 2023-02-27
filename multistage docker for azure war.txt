@@ -1,0 +1,48 @@
+buliding a war file  through  docker  and deploy  in a tomcat 
+
+
+# Multistage Dockerfile
+
+FROM openjdk:8 AS BUILD_IMAGE
+RUN apt update && apt install maven -y
+RUN git clone -b main https://github.com/bonalasaiprakash/pipelines-java.git
+RUN cd pipelines-java && mvn install
+
+FROM tomcat:8-jre11
+
+RUN rm -rf /usr/local/tomcat/webapps/*
+
+COPY --from=BUILD_IMAGE pipelines-java/target/helloworld.war /usr/local/tomcat/webapps/ROOT.war
+
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
+
+
+
+
+##############################################
+
+
+commands to bulid docker images #################################
+
+
+docker build -t prakashimg .
+docker run -d --name warwebsite -p 8888:8080 prakashimg
+
+
+To send images to dockerhub
+
+docker build -t docker build -t 3834/tomcat .                    to bulid docker images with  docker user name  must run this command
+
+docker login
+
+
+
+docker push 3834/tomcat                                       docker push must me username/imagename
+
+
+
+
+docker pull rakeshrak25/spring:v4                    to pull another dockerhub account which is in public
+
+
