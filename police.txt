@@ -1,0 +1,3 @@
+file-system-id efs-mount-point efs _netdev,tls,accesspoint=access-point-id 0 0
+
+fs-0b3a9f01f7440f9f7 sai efs _netdev,tls,accesspoint=fsap-014c71c61b2be0604 0 0

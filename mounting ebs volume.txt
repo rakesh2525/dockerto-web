@@ -1,0 +1,27 @@
+lsblk                             it list the  all information about the volumes 
+
+
+sudo mkfs -t xfs /dev/xvdf            to create file system 
+
+
+sudo mkdir /sai                        to create directory
+
+
+
+ sudo mount /dev/xvdf /sai              mountining file system to directory 
+
+
+ cd /sai                                 go into directory
+
+and create    file using touch command    
+
+cd   
+
+sudo umount /sai                     indicates the unmount the volumes    t helps to attach another ec2 instances
+
+
+   
+
+
+
+
